@@ -1,6 +1,6 @@
 "use client"
 
-import { useForm } from "react-hook-form"
+import { useForm, Controller } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
 import {
@@ -33,7 +33,11 @@ import { FieldWrapper } from "@/components/forms/field-wrapper"
 import { ThemeToggle } from "@/components/layout/theme-toggle"
 import {
   profileSchema,
+  notificationSchema,
+  securitySchema,
   type ProfileFormValues,
+  type NotificationFormValues,
+  type SecurityFormValues,
 } from "@/lib/validations/settings"
 import { AlertTriangle } from "lucide-react"
 
@@ -54,7 +58,6 @@ function ProfileForm() {
   const onSubmit = async (data: ProfileFormValues) => {
     await new Promise((r) => setTimeout(r, 500))
     toast.success("프로필이 저장되었습니다.")
-    console.log(data)
   }
 
   return (
@@ -114,85 +117,142 @@ function ProfileForm() {
 }
 
 function NotificationForm() {
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<NotificationFormValues>({
+    resolver: zodResolver(notificationSchema),
+    defaultValues: {
+      emailNotifications: true,
+      pushNotifications: false,
+      marketingEmails: false,
+      notificationFrequency: "daily",
+    },
+  })
+
+  const onSubmit = async (_data: NotificationFormValues) => {
+    await new Promise((r) => setTimeout(r, 500))
+    toast.success("알림 설정이 저장되었습니다.")
+  }
+
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>알림</CardTitle>
-        <CardDescription>알림 수신 방식을 설정하세요.</CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-5">
-        <div className="flex items-center justify-between">
-          <div>
-            <Label htmlFor="email-notifications" className="text-sm font-medium">
-              이메일 알림
-            </Label>
-            <p className="text-xs text-muted-foreground">
-              주요 이벤트를 이메일로 받습니다.
-            </p>
-          </div>
-          <Switch id="email-notifications" defaultChecked />
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between">
-          <div>
-            <Label htmlFor="push-notifications" className="text-sm font-medium">
-              푸시 알림
-            </Label>
-            <p className="text-xs text-muted-foreground">
-              브라우저 푸시 알림을 받습니다.
-            </p>
-          </div>
-          <Switch id="push-notifications" />
-        </div>
-
-        <Separator />
-
-        <div className="flex items-center justify-between">
-          <div>
-            <Label htmlFor="marketing-emails" className="text-sm font-medium">
-              마케팅 이메일
-            </Label>
-            <p className="text-xs text-muted-foreground">
-              새로운 기능 및 업데이트 소식을 받습니다.
-            </p>
-          </div>
-          <Switch id="marketing-emails" />
-        </div>
-
-        <Separator />
-
-        <div className="flex flex-col gap-3">
-          <Label className="text-sm font-medium">알림 빈도</Label>
-          <RadioGroup defaultValue="daily">
-            <div className="flex items-center gap-2">
-              <RadioGroupItem value="realtime" id="realtime" />
-              <Label htmlFor="realtime" className="cursor-pointer font-normal">
-                실시간
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Card>
+        <CardHeader>
+          <CardTitle>알림</CardTitle>
+          <CardDescription>알림 수신 방식을 설정하세요.</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-5">
+          <div className="flex items-center justify-between">
+            <div>
+              <Label htmlFor="email-notifications" className="text-sm font-medium">
+                이메일 알림
               </Label>
+              <p className="text-xs text-muted-foreground">
+                주요 이벤트를 이메일로 받습니다.
+              </p>
             </div>
-            <div className="flex items-center gap-2">
-              <RadioGroupItem value="daily" id="daily" />
-              <Label htmlFor="daily" className="cursor-pointer font-normal">
-                일간 요약
+            <Controller
+              control={control}
+              name="emailNotifications"
+              render={({ field }) => (
+                <Switch
+                  id="email-notifications"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              )}
+            />
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between">
+            <div>
+              <Label htmlFor="push-notifications" className="text-sm font-medium">
+                푸시 알림
               </Label>
+              <p className="text-xs text-muted-foreground">
+                브라우저 푸시 알림을 받습니다.
+              </p>
             </div>
-            <div className="flex items-center gap-2">
-              <RadioGroupItem value="weekly" id="weekly" />
-              <Label htmlFor="weekly" className="cursor-pointer font-normal">
-                주간 요약
+            <Controller
+              control={control}
+              name="pushNotifications"
+              render={({ field }) => (
+                <Switch
+                  id="push-notifications"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              )}
+            />
+          </div>
+
+          <Separator />
+
+          <div className="flex items-center justify-between">
+            <div>
+              <Label htmlFor="marketing-emails" className="text-sm font-medium">
+                마케팅 이메일
               </Label>
+              <p className="text-xs text-muted-foreground">
+                새로운 기능 및 업데이트 소식을 받습니다.
+              </p>
             </div>
-          </RadioGroup>
-        </div>
-      </CardContent>
-      <CardFooter>
-        <Button onClick={() => toast.success("알림 설정이 저장되었습니다.")}>
-          저장
-        </Button>
-      </CardFooter>
-    </Card>
+            <Controller
+              control={control}
+              name="marketingEmails"
+              render={({ field }) => (
+                <Switch
+                  id="marketing-emails"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              )}
+            />
+          </div>
+
+          <Separator />
+
+          <div className="flex flex-col gap-3">
+            <Label className="text-sm font-medium">알림 빈도</Label>
+            <Controller
+              control={control}
+              name="notificationFrequency"
+              render={({ field }) => (
+                <RadioGroup value={field.value} onValueChange={field.onChange}>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="realtime" id="realtime" />
+                    <Label htmlFor="realtime" className="cursor-pointer font-normal">
+                      실시간
+                    </Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="daily" id="daily" />
+                    <Label htmlFor="daily" className="cursor-pointer font-normal">
+                      일간 요약
+                    </Label>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <RadioGroupItem value="weekly" id="weekly" />
+                    <Label htmlFor="weekly" className="cursor-pointer font-normal">
+                      주간 요약
+                    </Label>
+                  </div>
+                </RadioGroup>
+              )}
+            />
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "저장 중..." : "저장"}
+          </Button>
+        </CardFooter>
+      </Card>
+    </form>
   )
 }
 
@@ -217,31 +277,79 @@ function AppearanceTab() {
 }
 
 function SecurityTab() {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<SecurityFormValues>({
+    resolver: zodResolver(securitySchema),
+  })
+
+  const onSubmit = async (_data: SecurityFormValues) => {
+    try {
+      await new Promise((r) => setTimeout(r, 500))
+      toast.success("비밀번호가 변경되었습니다.")
+      reset()
+    } catch {
+      toast.error("비밀번호 변경에 실패했습니다. 다시 시도해주세요.")
+    }
+  }
+
   return (
     <div className="flex flex-col gap-4">
-      <form onSubmit={(e) => { e.preventDefault(); toast.success("비밀번호가 변경되었습니다.") }}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Card>
           <CardHeader>
             <CardTitle>비밀번호 변경</CardTitle>
             <CardDescription>계정 보안을 위해 주기적으로 변경하세요.</CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col gap-4">
-            <FieldWrapper label="현재 비밀번호" htmlFor="current-password">
-              <Input id="current-password" type="password" />
+            <FieldWrapper
+              label="현재 비밀번호"
+              htmlFor="current-password"
+              error={errors.currentPassword?.message}
+              required
+            >
+              <Input
+                id="current-password"
+                type="password"
+                {...register("currentPassword")}
+                aria-invalid={!!errors.currentPassword}
+              />
             </FieldWrapper>
             <FieldWrapper
               label="새 비밀번호"
               htmlFor="new-password"
               description="영문 대소문자와 숫자를 포함해 8자 이상 입력하세요."
+              error={errors.newPassword?.message}
+              required
             >
-              <Input id="new-password" type="password" />
+              <Input
+                id="new-password"
+                type="password"
+                {...register("newPassword")}
+                aria-invalid={!!errors.newPassword}
+              />
             </FieldWrapper>
-            <FieldWrapper label="새 비밀번호 확인" htmlFor="confirm-password">
-              <Input id="confirm-password" type="password" />
+            <FieldWrapper
+              label="새 비밀번호 확인"
+              htmlFor="confirm-password"
+              error={errors.confirmPassword?.message}
+              required
+            >
+              <Input
+                id="confirm-password"
+                type="password"
+                {...register("confirmPassword")}
+                aria-invalid={!!errors.confirmPassword}
+              />
             </FieldWrapper>
           </CardContent>
           <CardFooter>
-            <Button type="submit">변경</Button>
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "변경 중..." : "변경"}
+            </Button>
           </CardFooter>
         </Card>
       </form>
