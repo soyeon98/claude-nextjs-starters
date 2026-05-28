@@ -1,0 +1,58 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - generic [ref=e4]:
+        - link "StarterKit" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img [ref=e7]
+          - generic [ref=e11]: StarterKit
+        - navigation [ref=e12]:
+          - link "홈" [ref=e13] [cursor=pointer]:
+            - /url: /
+          - link "대시보드" [ref=e14] [cursor=pointer]:
+            - /url: /dashboard
+          - link "설정" [ref=e15] [cursor=pointer]:
+            - /url: /settings
+        - generic [ref=e16]:
+          - button "테마 전환" [ref=e17]:
+            - img
+          - link "시작하기" [ref=e18] [cursor=pointer]:
+            - /url: /dashboard
+    - main [ref=e19]:
+      - generic [ref=e20]:
+        - heading "이용약관" [level=1] [ref=e21]
+        - paragraph [ref=e22]: "최종 업데이트: 2026년 1월 1일"
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - heading "제1조 (목적)" [level=2] [ref=e25]
+            - paragraph [ref=e26]: 이 약관은 StarterKit(이하 "서비스")의 이용과 관련하여 서비스와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
+          - generic [ref=e27]:
+            - heading "제2조 (정의)" [level=2] [ref=e28]
+            - paragraph [ref=e29]: "\"이용자\"란 이 약관에 따라 서비스가 제공하는 서비스를 받는 회원 및 비회원을 말합니다."
+          - generic [ref=e30]:
+            - heading "제3조 (약관의 효력 및 변경)" [level=2] [ref=e31]
+            - paragraph [ref=e32]: 이 약관은 서비스 화면에 게시하거나 기타의 방법으로 이용자에게 공지함으로써 효력을 발생합니다. 서비스는 합리적인 사유가 발생할 경우 약관을 변경할 수 있으며, 변경된 약관은 공지 후 효력을 발생합니다.
+          - generic [ref=e33]:
+            - heading "제4조 (서비스의 제공)" [level=2] [ref=e34]
+            - paragraph [ref=e35]: 서비스는 이용자에게 아래와 같은 서비스를 제공합니다. 서비스의 내용은 기술적 사유 또는 서비스 운영상의 이유로 변경될 수 있습니다.
+          - generic [ref=e36]:
+            - heading "제5조 (면책조항)" [level=2] [ref=e37]
+            - paragraph [ref=e38]: 서비스는 천재지변, 전쟁, 기타 이에 준하는 불가항력으로 인하여 서비스를 제공할 수 없는 경우에는 서비스 제공에 관한 책임이 면제됩니다.
+          - generic [ref=e39]:
+            - heading "제6조 (문의)" [level=2] [ref=e40]
+            - paragraph [ref=e41]:
+              - text: 이용약관에 관한 문의사항은 아래 연락처로 문의하시기 바랍니다.
+              - text: "이메일: legal@example.com"
+    - contentinfo [ref=e42]:
+      - generic [ref=e43]:
+        - paragraph [ref=e44]: © 2026 StarterKit. All rights reserved.
+        - navigation [ref=e45]:
+          - link "개인정보처리방침" [ref=e46] [cursor=pointer]:
+            - /url: /privacy
+          - link "이용약관" [ref=e47] [cursor=pointer]:
+            - /url: /terms
+          - link "GitHub" [ref=e48] [cursor=pointer]:
+            - /url: https://github.com
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e54] [cursor=pointer]:
+    - img [ref=e55]

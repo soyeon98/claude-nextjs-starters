@@ -1,0 +1,123 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "StarterKit 스타터킷" [ref=e9] [cursor=pointer]:
+            - /url: /
+            - img [ref=e11]
+            - generic [ref=e15]:
+              - generic [ref=e16]: StarterKit
+              - generic [ref=e17]: 스타터킷
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 메인
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "홈" [ref=e24] [cursor=pointer]:
+                - /url: /
+                - img [ref=e25]
+                - generic [ref=e28]: 홈
+            - listitem [ref=e29]:
+              - link "대시보드" [ref=e30] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e31]
+                - generic [ref=e36]: 대시보드
+            - listitem [ref=e37]:
+              - link "분석" [ref=e38] [cursor=pointer]:
+                - /url: /dashboard/analytics
+                - img [ref=e39]
+                - generic [ref=e41]: 분석
+        - generic [ref=e42]:
+          - generic [ref=e43]: 관리
+          - list [ref=e45]:
+            - listitem [ref=e46]:
+              - link "사용자" [ref=e47] [cursor=pointer]:
+                - /url: /dashboard/users
+                - img [ref=e48]
+                - generic [ref=e53]: 사용자
+            - listitem [ref=e54]:
+              - link "문서" [ref=e55] [cursor=pointer]:
+                - /url: /dashboard/docs
+                - img [ref=e56]
+                - generic [ref=e59]: 문서
+        - generic [ref=e60]:
+          - generic [ref=e61]: 시스템
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - link "설정" [ref=e65] [cursor=pointer]:
+                - /url: /settings
+                - img [ref=e66]
+                - generic [ref=e69]: 설정
+      - list [ref=e71]:
+        - listitem [ref=e72]:
+          - button "홍 홍길동 user@example.com" [ref=e73]:
+            - generic [ref=e75]: 홍
+            - generic [ref=e76]:
+              - generic [ref=e77]: 홍길동
+              - generic [ref=e78]: user@example.com
+            - img [ref=e79]
+      - button "Toggle Sidebar" [ref=e82]
+    - main [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - button "Toggle Sidebar" [ref=e86]:
+            - img
+            - generic [ref=e87]: Toggle Sidebar
+          - navigation "breadcrumb" [ref=e88]:
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - link "홈" [ref=e91] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e92]:
+                - img [ref=e93]
+              - listitem [ref=e95]:
+                - link "설정" [disabled] [ref=e96]
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - heading "설정" [level=1] [ref=e99]
+            - paragraph [ref=e100]: 계정 및 앱 환경설정을 관리하세요.
+          - generic [ref=e101]:
+            - tablist [ref=e102]:
+              - tab "프로필" [ref=e103]
+              - tab "알림" [active] [selected] [ref=e104]
+              - tab "외관" [ref=e105]
+              - tab "보안" [ref=e106]
+            - tabpanel "알림" [ref=e138]:
+              - generic [ref=e139]:
+                - generic [ref=e140]:
+                  - generic [ref=e141]: 알림
+                  - generic [ref=e142]: 알림 수신 방식을 설정하세요.
+                - generic [ref=e143]:
+                  - generic [ref=e144]:
+                    - generic [ref=e145]:
+                      - generic [ref=e146]: 이메일 알림
+                      - paragraph [ref=e147]: 주요 이벤트를 이메일로 받습니다.
+                    - switch "이메일 알림" [checked] [ref=e148]
+                  - generic [ref=e149]:
+                    - generic [ref=e150]:
+                      - generic [ref=e151]: 푸시 알림
+                      - paragraph [ref=e152]: 브라우저 푸시 알림을 받습니다.
+                    - switch "푸시 알림" [ref=e153]
+                  - generic [ref=e154]:
+                    - generic [ref=e155]:
+                      - generic [ref=e156]: 마케팅 이메일
+                      - paragraph [ref=e157]: 새로운 기능 및 업데이트 소식을 받습니다.
+                    - switch "마케팅 이메일" [ref=e158]
+                  - generic [ref=e159]:
+                    - generic [ref=e160]: 알림 빈도
+                    - radiogroup [ref=e161]:
+                      - generic [ref=e162]:
+                        - radio "실시간" [ref=e163]
+                        - generic [ref=e164] [cursor=pointer]: 실시간
+                      - generic [ref=e165]:
+                        - radio "일간 요약" [checked] [ref=e166]
+                        - generic [ref=e169] [cursor=pointer]: 일간 요약
+                      - generic [ref=e170]:
+                        - radio "주간 요약" [ref=e171]
+                        - generic [ref=e172] [cursor=pointer]: 주간 요약
+                - button "저장" [ref=e174]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e133] [cursor=pointer]:
+    - img [ref=e134]
+  - alert [ref=e137]

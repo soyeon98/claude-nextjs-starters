@@ -1,0 +1,110 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "StarterKit 스타터킷" [ref=e9] [cursor=pointer]:
+            - /url: /
+            - img [ref=e11]
+            - generic [ref=e15]:
+              - generic [ref=e16]: StarterKit
+              - generic [ref=e17]: 스타터킷
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 메인
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "홈" [ref=e24] [cursor=pointer]:
+                - /url: /
+                - img [ref=e25]
+                - generic [ref=e28]: 홈
+            - listitem [ref=e29]:
+              - link "대시보드" [ref=e30] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e31]
+                - generic [ref=e36]: 대시보드
+            - listitem [ref=e37]:
+              - link "분석" [ref=e38] [cursor=pointer]:
+                - /url: /dashboard/analytics
+                - img [ref=e39]
+                - generic [ref=e41]: 분석
+        - generic [ref=e42]:
+          - generic [ref=e43]: 관리
+          - list [ref=e45]:
+            - listitem [ref=e46]:
+              - link "사용자" [ref=e47] [cursor=pointer]:
+                - /url: /dashboard/users
+                - img [ref=e48]
+                - generic [ref=e53]: 사용자
+            - listitem [ref=e54]:
+              - link "문서" [ref=e55] [cursor=pointer]:
+                - /url: /dashboard/docs
+                - img [ref=e56]
+                - generic [ref=e59]: 문서
+        - generic [ref=e60]:
+          - generic [ref=e61]: 시스템
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - link "설정" [ref=e65] [cursor=pointer]:
+                - /url: /settings
+                - img [ref=e66]
+                - generic [ref=e69]: 설정
+      - list [ref=e71]:
+        - listitem [ref=e72]:
+          - button "홍 홍길동 user@example.com" [ref=e73]:
+            - generic [ref=e75]: 홍
+            - generic [ref=e76]:
+              - generic [ref=e77]: 홍길동
+              - generic [ref=e78]: user@example.com
+            - img [ref=e79]
+      - button "Toggle Sidebar" [ref=e82]
+    - main [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - button "Toggle Sidebar" [ref=e86]:
+            - img
+            - generic [ref=e87]: Toggle Sidebar
+          - navigation "breadcrumb" [ref=e88]:
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - link "홈" [ref=e91] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e92]:
+                - img [ref=e93]
+              - listitem [ref=e95]:
+                - link "설정" [disabled] [ref=e96]
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - heading "설정" [level=1] [ref=e99]
+            - paragraph [ref=e100]: 계정 및 앱 환경설정을 관리하세요.
+          - generic [ref=e101]:
+            - tablist [ref=e102]:
+              - tab "프로필" [selected] [ref=e103]
+              - tab "알림" [ref=e104]
+              - tab "외관" [ref=e105]
+              - tab "보안" [ref=e106]
+            - tabpanel "프로필" [ref=e107]:
+              - generic [ref=e109]:
+                - generic [ref=e110]:
+                  - generic [ref=e111]: 프로필
+                  - generic [ref=e112]: 공개 프로필 정보를 관리하세요.
+                - generic [ref=e113]:
+                  - generic [ref=e114]:
+                    - generic [ref=e115]:
+                      - text: 이름
+                      - generic [ref=e116]: "*"
+                    - textbox "이름 *" [ref=e117]
+                  - generic [ref=e118]:
+                    - generic [ref=e119]:
+                      - text: 이메일
+                      - generic [ref=e120]: "*"
+                    - textbox "이메일 *" [ref=e121]
+                  - generic [ref=e122]:
+                    - generic [ref=e123]: 소개
+                    - textbox "소개" [ref=e124]:
+                      - /placeholder: 자신을 소개해주세요.
+                    - paragraph [ref=e125]: 최대 200자까지 입력할 수 있습니다.
+                - button "저장" [ref=e127]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e133] [cursor=pointer]:
+    - img [ref=e134]

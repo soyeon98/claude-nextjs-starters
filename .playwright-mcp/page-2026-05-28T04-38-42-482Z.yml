@@ -1,0 +1,176 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "StarterKit 스타터킷" [ref=e9] [cursor=pointer]:
+            - /url: /
+            - img [ref=e11]
+            - generic [ref=e15]:
+              - generic [ref=e16]: StarterKit
+              - generic [ref=e17]: 스타터킷
+      - generic [ref=e18]:
+        - generic [ref=e19]:
+          - generic [ref=e20]: 메인
+          - list [ref=e22]:
+            - listitem [ref=e23]:
+              - link "홈" [ref=e24] [cursor=pointer]:
+                - /url: /
+                - img [ref=e25]
+                - generic [ref=e28]: 홈
+            - listitem [ref=e29]:
+              - link "대시보드" [ref=e30] [cursor=pointer]:
+                - /url: /dashboard
+                - img [ref=e31]
+                - generic [ref=e36]: 대시보드
+            - listitem [ref=e37]:
+              - link "분석" [ref=e38] [cursor=pointer]:
+                - /url: /dashboard/analytics
+                - img [ref=e39]
+                - generic [ref=e41]: 분석
+        - generic [ref=e42]:
+          - generic [ref=e43]: 관리
+          - list [ref=e45]:
+            - listitem [ref=e46]:
+              - link "사용자" [ref=e47] [cursor=pointer]:
+                - /url: /dashboard/users
+                - img [ref=e48]
+                - generic [ref=e53]: 사용자
+            - listitem [ref=e54]:
+              - link "문서" [ref=e55] [cursor=pointer]:
+                - /url: /dashboard/docs
+                - img [ref=e56]
+                - generic [ref=e59]: 문서
+        - generic [ref=e60]:
+          - generic [ref=e61]: 시스템
+          - list [ref=e63]:
+            - listitem [ref=e64]:
+              - link "설정" [ref=e65] [cursor=pointer]:
+                - /url: /settings
+                - img [ref=e66]
+                - generic [ref=e69]: 설정
+      - list [ref=e71]:
+        - listitem [ref=e72]:
+          - button "홍 홍길동 user@example.com" [ref=e73]:
+            - generic [ref=e75]: 홍
+            - generic [ref=e76]:
+              - generic [ref=e77]: 홍길동
+              - generic [ref=e78]: user@example.com
+            - img [ref=e79]
+      - button "Toggle Sidebar" [ref=e82]
+    - main [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - button "Toggle Sidebar" [ref=e86]:
+            - img
+            - generic [ref=e87]: Toggle Sidebar
+          - navigation "breadcrumb" [ref=e88]:
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - link "홈" [ref=e91] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e92]:
+                - img [ref=e93]
+              - listitem [ref=e95]:
+                - link "대시보드" [disabled] [ref=e96]
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - heading "대시보드" [level=1] [ref=e99]
+            - paragraph [ref=e100]: 서비스 현황을 한눈에 확인하세요.
+          - generic [ref=e101]:
+            - generic [ref=e102]:
+              - generic [ref=e103]:
+                - generic [ref=e104]: 총 사용자
+                - img [ref=e105]
+              - generic [ref=e110]:
+                - paragraph [ref=e111]: 12,345
+                - generic [ref=e112]:
+                  - img [ref=e113]
+                  - generic [ref=e116]: +12%
+                  - generic [ref=e117]: 지난 달 대비
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - generic [ref=e120]: 월 매출
+                - img [ref=e121]
+              - generic [ref=e123]:
+                - paragraph [ref=e124]: ₩4,523,100
+                - generic [ref=e125]:
+                  - img [ref=e126]
+                  - generic [ref=e129]: +8.2%
+                  - generic [ref=e130]: 지난 달 대비
+            - generic [ref=e131]:
+              - generic [ref=e132]:
+                - generic [ref=e133]: 신규 주문
+                - img [ref=e134]
+              - generic [ref=e138]:
+                - paragraph [ref=e139]: "573"
+                - generic [ref=e140]:
+                  - img [ref=e141]
+                  - generic [ref=e144]: "-3.1%"
+                  - generic [ref=e145]: 지난 주 대비
+            - generic [ref=e146]:
+              - generic [ref=e147]:
+                - generic [ref=e148]: 활성 세션
+                - img [ref=e149]
+              - generic [ref=e151]:
+                - paragraph [ref=e152]: 1,429
+                - generic [ref=e153]:
+                  - img [ref=e154]
+                  - generic [ref=e157]: +19%
+                  - generic [ref=e158]: 현재 기준
+          - generic [ref=e159]:
+            - tablist [ref=e160]:
+              - tab "최근 주문" [selected] [ref=e161]
+              - tab "활동 로그" [ref=e162]
+            - tabpanel "최근 주문" [ref=e163]:
+              - generic [ref=e164]:
+                - generic [ref=e165]:
+                  - paragraph [ref=e166]: 최근 주문
+                  - generic [ref=e167]: 최근 5개의 주문 내역입니다.
+                - table [ref=e170]:
+                  - rowgroup [ref=e171]:
+                    - row "주문번호 고객명 상태 금액 날짜" [ref=e172]:
+                      - columnheader "주문번호" [ref=e173]
+                      - columnheader "고객명" [ref=e174]
+                      - columnheader "상태" [ref=e175]
+                      - columnheader "금액" [ref=e176]
+                      - columnheader "날짜" [ref=e177]
+                  - rowgroup [ref=e178]:
+                    - row "ORD-001 김민준 완료 ₩89,000 2026-05-22" [ref=e179]:
+                      - cell "ORD-001" [ref=e180]
+                      - cell "김민준" [ref=e181]
+                      - cell "완료" [ref=e182]:
+                        - generic [ref=e183]: 완료
+                      - cell "₩89,000" [ref=e184]
+                      - cell "2026-05-22" [ref=e185]
+                    - row "ORD-002 이서연 처리중 ₩125,000 2026-05-22" [ref=e186]:
+                      - cell "ORD-002" [ref=e187]
+                      - cell "이서연" [ref=e188]
+                      - cell "처리중" [ref=e189]:
+                        - generic [ref=e190]: 처리중
+                      - cell "₩125,000" [ref=e191]
+                      - cell "2026-05-22" [ref=e192]
+                    - row "ORD-003 박지훈 완료 ₩43,500 2026-05-21" [ref=e193]:
+                      - cell "ORD-003" [ref=e194]
+                      - cell "박지훈" [ref=e195]
+                      - cell "완료" [ref=e196]:
+                        - generic [ref=e197]: 완료
+                      - cell "₩43,500" [ref=e198]
+                      - cell "2026-05-21" [ref=e199]
+                    - row "ORD-004 최수아 취소 ₩67,000 2026-05-21" [ref=e200]:
+                      - cell "ORD-004" [ref=e201]
+                      - cell "최수아" [ref=e202]
+                      - cell "취소" [ref=e203]:
+                        - generic [ref=e204]: 취소
+                      - cell "₩67,000" [ref=e205]
+                      - cell "2026-05-21" [ref=e206]
+                    - row "ORD-005 정도윤 처리중 ₩210,000 2026-05-20" [ref=e207]:
+                      - cell "ORD-005" [ref=e208]
+                      - cell "정도윤" [ref=e209]
+                      - cell "처리중" [ref=e210]:
+                        - generic [ref=e211]: 처리중
+                      - cell "₩210,000" [ref=e212]
+                      - cell "2026-05-20" [ref=e213]
+  - region "Notifications alt+T"
+  - button "Open Next.js Dev Tools" [ref=e219] [cursor=pointer]:
+    - img [ref=e220]
