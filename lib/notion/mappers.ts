@@ -16,11 +16,16 @@ export function mapPageToInvoiceSummary(page: PageObjectResponse): InvoiceSummar
   const amount =
     amountProp?.type === "number" ? amountProp.number : null
 
+  const statusProp = page.properties["상태"]
+  const status =
+    statusProp?.type === "status" ? (statusProp.status?.name ?? null) : null
+
   return {
     notionPageId: page.id,
     title,
     amount,
     lastEditedAt: page.last_edited_time,
+    status,
   }
 }
 

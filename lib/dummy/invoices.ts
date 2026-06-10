@@ -7,18 +7,21 @@ export const DUMMY_INVOICES: InvoiceSummary[] = [
     title: 'INV-2026-001',
     amount: 3500000,
     lastEditedAt: '2026-06-01T00:00:00Z',
+    status: '완료',
   },
   {
     notionPageId: 'dummy-002',
     title: 'INV-2026-002',
     amount: 1200000,
     lastEditedAt: '2026-06-03T00:00:00Z',
+    status: '대기',
   },
   {
     notionPageId: 'dummy-003',
     title: 'INV-2026-003',
     amount: 800000,
     lastEditedAt: '2026-06-05T00:00:00Z',
+    status: null,
   },
 ]
 

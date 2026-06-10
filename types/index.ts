@@ -40,6 +40,8 @@ export interface InvoiceSummary {
   amount: number | null
   /** 노션 페이지 최종 수정 시각 (ISO 문자열) */
   lastEditedAt: string
+  /** 견적서 상태 (노션 status 속성, 없으면 null) */
+  status: string | null
 }
 
 /** 견적서 단일 항목 */

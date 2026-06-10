@@ -38,6 +38,22 @@ import { SidebarTrigger } from "@/components/ui/sidebar"
 import { Button } from "@/components/ui/button"
 import type { InvoiceSummary } from "@/types"
 
+const STATUS_STYLE: Record<string, string> = {
+  대기:    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300",
+  진행중:  "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300",
+  완료:    "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300",
+  취소:    "bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300",
+}
+
+function StatusBadge({ status }: { status: string }) {
+  const cls = STATUS_STYLE[status] ?? "bg-muted text-muted-foreground"
+  return (
+    <span className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${cls}`}>
+      {status}
+    </span>
+  )
+}
+
 export function InvoicesClient() {
   const [invoices, setInvoices] = useState<InvoiceSummary[]>([])
   const [isLoading, setIsLoading] = useState(false)
@@ -147,16 +163,19 @@ export function InvoicesClient() {
                         총금액
                       </TableHead>
                       <TableHead className="text-center font-bold text-foreground whitespace-nowrap">
+                        상태
+                      </TableHead>
+                      <TableHead className="text-center font-bold text-foreground whitespace-nowrap">
                         최종 수정일
                       </TableHead>
-                      <TableHead className="견 text-center font-bold text-foreground">작업</TableHead>
+                      <TableHead className="text-center font-bold text-foreground">작업</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
                     {isLoading ? (
                       <TableRow>
                         <TableCell
-                          colSpan={4}
+                          colSpan={5}
                           className="py-12 text-center text-sm text-muted-foreground"
                         >
                           불러오는 중...
@@ -165,7 +184,7 @@ export function InvoicesClient() {
                     ) : errorMessage ? (
                       <TableRow>
                         <TableCell
-                          colSpan={4}
+                          colSpan={5}
                           className="py-12 text-center text-sm text-muted-foreground"
                         >
                           {errorMessage}
@@ -179,7 +198,7 @@ export function InvoicesClient() {
                     ) : invoices.length === 0 ? (
                       <TableRow>
                         <TableCell
-                          colSpan={4}
+                          colSpan={5}
                           className="py-12 text-center text-sm text-muted-foreground"
                         >
                           견적서가 없습니다.
@@ -198,6 +217,13 @@ export function InvoicesClient() {
                           </TableCell>
                           <TableCell className="text-center whitespace-nowrap tabular-nums">
                             {formatAmount(invoice.amount)}
+                          </TableCell>
+                          <TableCell className="text-center whitespace-nowrap">
+                            {invoice.status ? (
+                              <StatusBadge status={invoice.status} />
+                            ) : (
+                              <span className="text-muted-foreground">—</span>
+                            )}
                           </TableCell>
                           <TableCell className="text-center whitespace-nowrap tabular-nums text-muted-foreground">
                             {format(new Date(invoice.lastEditedAt), "yyyy-MM-dd")}
