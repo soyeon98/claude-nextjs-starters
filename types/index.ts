@@ -38,8 +38,10 @@ export interface InvoiceSummary {
   title: string
   /** 견적 금액 (노션 속성에서 추출, 없으면 null) */
   amount: number | null
-  /** 노션 페이지 최종 수정 시각 (ISO 문자열) */
-  lastEditedAt: string
+  /** 발행일 (YYYY-MM-DD, 없으면 null) */
+  issueDate: string | null
+  /** 클라이언트명 (없으면 null) */
+  clientName: string | null
   /** 견적서 상태 (노션 status 속성, 없으면 null) */
   status: string | null
 }

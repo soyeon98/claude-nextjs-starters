@@ -16,6 +16,16 @@ export function mapPageToInvoiceSummary(page: PageObjectResponse): InvoiceSummar
   const amount =
     amountProp?.type === "number" ? amountProp.number : null
 
+  const issueProp = page.properties["발행일"]
+  const issueDate =
+    issueProp?.type === "date" ? (issueProp.date?.start ?? null) : null
+
+  const clientProp = page.properties["클라이언트명"]
+  const clientName =
+    clientProp?.type === "rich_text"
+      ? (clientProp.rich_text[0]?.plain_text ?? null) || null
+      : null
+
   const statusProp = page.properties["상태"]
   const status =
     statusProp?.type === "status" ? (statusProp.status?.name ?? null) : null
@@ -24,7 +34,8 @@ export function mapPageToInvoiceSummary(page: PageObjectResponse): InvoiceSummar
     notionPageId: page.id,
     title,
     amount,
-    lastEditedAt: page.last_edited_time,
+    issueDate,
+    clientName,
     status,
   }
 }

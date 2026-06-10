@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from "react"
 import Link from "next/link"
-import { format } from "date-fns"
 import { Eye, Link2, RefreshCw } from "lucide-react"
 import { toast } from "sonner"
 import {
@@ -160,13 +159,16 @@ export function InvoicesClient() {
                     <TableRow>
                       <TableHead className="text-center font-bold text-foreground">견적서 번호</TableHead>
                       <TableHead className="text-center font-bold text-foreground whitespace-nowrap">
+                        클라이언트
+                      </TableHead>
+                      <TableHead className="text-center font-bold text-foreground whitespace-nowrap">
+                        발행일
+                      </TableHead>
+                      <TableHead className="text-center font-bold text-foreground whitespace-nowrap">
                         총금액
                       </TableHead>
                       <TableHead className="text-center font-bold text-foreground whitespace-nowrap">
                         상태
-                      </TableHead>
-                      <TableHead className="text-center font-bold text-foreground whitespace-nowrap">
-                        최종 수정일
                       </TableHead>
                       <TableHead className="text-center font-bold text-foreground">작업</TableHead>
                     </TableRow>
@@ -175,7 +177,7 @@ export function InvoicesClient() {
                     {isLoading ? (
                       <TableRow>
                         <TableCell
-                          colSpan={5}
+                          colSpan={6}
                           className="py-12 text-center text-sm text-muted-foreground"
                         >
                           불러오는 중...
@@ -184,7 +186,7 @@ export function InvoicesClient() {
                     ) : errorMessage ? (
                       <TableRow>
                         <TableCell
-                          colSpan={5}
+                          colSpan={6}
                           className="py-12 text-center text-sm text-muted-foreground"
                         >
                           {errorMessage}
@@ -198,7 +200,7 @@ export function InvoicesClient() {
                     ) : invoices.length === 0 ? (
                       <TableRow>
                         <TableCell
-                          colSpan={5}
+                          colSpan={6}
                           className="py-12 text-center text-sm text-muted-foreground"
                         >
                           견적서가 없습니다.
@@ -215,6 +217,12 @@ export function InvoicesClient() {
                           <TableCell className="text-center font-medium">
                             {invoice.title}
                           </TableCell>
+                          <TableCell className="text-center whitespace-nowrap text-muted-foreground">
+                            {invoice.clientName ?? "—"}
+                          </TableCell>
+                          <TableCell className="text-center whitespace-nowrap tabular-nums text-muted-foreground">
+                            {invoice.issueDate ?? "—"}
+                          </TableCell>
                           <TableCell className="text-center whitespace-nowrap tabular-nums">
                             {formatAmount(invoice.amount)}
                           </TableCell>
@@ -224,9 +232,6 @@ export function InvoicesClient() {
                             ) : (
                               <span className="text-muted-foreground">—</span>
                             )}
-                          </TableCell>
-                          <TableCell className="text-center whitespace-nowrap tabular-nums text-muted-foreground">
-                            {format(new Date(invoice.lastEditedAt), "yyyy-MM-dd")}
                           </TableCell>
                           <TableCell className="text-center">
                             <div className="flex items-center justify-center gap-1">
