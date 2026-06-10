@@ -25,6 +25,17 @@
         "shadcn@latest",
         "mcp"
       ]
+    },
+    "shrimp-task-manager": {
+      "command": "node",
+      "args": [
+        "D:/project/claude/workspaces/mcp-shrimp-task-manager/dist/index.js"
+      ],
+      "env": {
+        "DATA_DIR": "D:/project/claude/workspaces/invoice-web/shrimp-data",
+        "TEMPLATES_USE": "en",
+        "ENABLE_GUI": "true"
+      }
     }
   }
 }

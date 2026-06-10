@@ -21,19 +21,20 @@ npm run lint      # ESLint 검사
 
 ### Route Groups
 
-두 개의 레이아웃 그룹으로 분리됩니다:
+세 개의 레이아웃 그룹으로 분리됩니다:
 
-- **`app/(marketing)/`** — 헤더+푸터 레이아웃. 공개 페이지 (`/`, `/privacy`, `/terms`)
-- **`app/(app)/`** — 사이드바 레이아웃. 인증 영역 (`/dashboard/**`, `/settings`)
+- **`app/(marketing)/`** — 헤더+푸터 레이아웃. 공개 페이지 (`/`, `/privacy`, `/terms`, `/view/[token]`)
+- **`app/(app)/`** — 사이드바 레이아웃. 인증 영역 (`/dashboard/invoices/**`, `/settings/notion`). `/dashboard`는 `/dashboard/invoices`로 리다이렉트
+- **`app/(auth)/`** — 중앙 정렬 카드 레이아웃. 인증 페이지 (`/login`, `/register`)
 
 ### Server / Client 컴포넌트 분리 패턴
 
 `"use client"` 파일에서는 `metadata`를 export할 수 없습니다. 페이지에 인터랙션이 필요하면 다음 패턴을 사용하세요:
 
 ```
-app/(app)/settings/
+app/(app)/settings/notion/
   page.tsx          ← Server Component: metadata export + Client 컴포넌트 렌더링만
-  settings-client.tsx  ← "use client": 실제 폼/훅 로직
+  notion-client.tsx  ← "use client": 실제 폼/훅 로직
 ```
 
 ### 사이드바 네비게이션 아이콘

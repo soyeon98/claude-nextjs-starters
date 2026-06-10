@@ -1,13 +1,6 @@
 "use client"
 
-import {
-  BadgeCheck,
-  Bell,
-  ChevronsUpDown,
-  LogOut,
-  Settings,
-  Sparkles,
-} from "lucide-react"
+import { ChevronsUpDown, LogOut, Settings } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   DropdownMenu,
@@ -86,25 +79,10 @@ export function NavUser({ user }: NavUserProps) {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <Sparkles className="size-4" />
-                업그레이드
-              </DropdownMenuItem>
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <BadgeCheck className="size-4" />
-                계정
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Bell className="size-4" />
-                알림
-              </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <a href="/settings">
+                <a href="/settings/notion">
                   <Settings className="size-4" />
-                  설정
+                  노션 연동
                 </a>
               </DropdownMenuItem>
             </DropdownMenuGroup>

@@ -33,7 +33,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">{siteConfig.name}</span>
                   <span className="truncate text-xs text-muted-foreground">
-                    스타터킷
+                    견적서 공유
                   </span>
                 </div>
               </Link>

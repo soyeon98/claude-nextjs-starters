@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# 예제 파일은 커밋 허용 (실제 비밀값은 포함하지 않음)
+!.env.local.example
 
 # vercel
 .vercel

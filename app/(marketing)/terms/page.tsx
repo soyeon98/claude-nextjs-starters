@@ -4,7 +4,7 @@ export const metadata: Metadata = { title: "이용약관" }
 
 export default function TermsPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16">
+    <div className="mx-auto max-w-4xl px-4 py-16">
       <h1 className="mb-2 text-3xl font-bold tracking-tight">이용약관</h1>
       <p className="mb-10 text-sm text-muted-foreground">최종 업데이트: 2026년 1월 1일</p>
 
@@ -12,7 +12,7 @@ export default function TermsPage() {
         <section>
           <h2 className="mb-3 text-lg font-semibold text-foreground">제1조 (목적)</h2>
           <p>
-            이 약관은 StarterKit(이하 "서비스")의 이용과 관련하여 서비스와 이용자 간의 권리,
+            이 약관은 견적서 공유 서비스(이하 “서비스”)의 이용과 관련하여 서비스와 이용자 간의 권리,
             의무 및 책임사항을 규정함을 목적으로 합니다.
           </p>
         </section>
@@ -20,7 +20,7 @@ export default function TermsPage() {
         <section>
           <h2 className="mb-3 text-lg font-semibold text-foreground">제2조 (정의)</h2>
           <p>
-            "이용자"란 이 약관에 따라 서비스가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.
+            “이용자”란 이 약관에 따라 서비스가 제공하는 서비스를 받는 회원 및 비회원을 말합니다.
           </p>
         </section>
 

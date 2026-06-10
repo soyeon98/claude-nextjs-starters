@@ -5,12 +5,9 @@ import { usePathname } from "next/navigation"
 import {
   Home,
   LayoutDashboard,
-  BarChart3,
-  Users,
   FileText,
   Settings,
-  FolderOpen,
-  Star,
+  Plug,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import {
@@ -25,12 +22,9 @@ import {
 const iconMap: Record<string, React.ReactNode> = {
   home: <Home />,
   dashboard: <LayoutDashboard />,
-  chart: <BarChart3 />,
-  users: <Users />,
-  file: <FileText />,
+  fileText: <FileText />,
+  plug: <Plug />,
   settings: <Settings />,
-  folder: <FolderOpen />,
-  star: <Star />,
 }
 
 interface NavGroup {
