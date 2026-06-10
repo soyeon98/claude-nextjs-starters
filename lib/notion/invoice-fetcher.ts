@@ -30,11 +30,11 @@ export async function getInvoiceDetail(pageId: string): Promise<InvoiceDetail | 
 
     return mapPageToInvoiceDetail(invoicePage, items)
   } catch (error) {
-    if (
-      APIResponseError.isAPIResponseError(error) &&
-      error.code === "object_not_found"
-    ) {
-      return null
+    if (APIResponseError.isAPIResponseError(error)) {
+      const nullCodes = ["object_not_found", "validation_error"]
+      if (nullCodes.includes(error.code)) {
+        return null
+      }
     }
     throw error
   }

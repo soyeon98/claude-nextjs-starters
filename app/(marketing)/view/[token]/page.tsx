@@ -67,7 +67,6 @@ export default async function ViewInvoicePage({
         <h1 className="text-lg font-semibold text-muted-foreground">
           견적서 확인
         </h1>
-        {/* TODO: PDF 스트림 엔드포인트 연결 (F005) */}
         <Button asChild variant="outline" size="sm">
           <a href={`/api/pdf/${token}`} download>
             <Download className="size-4" />

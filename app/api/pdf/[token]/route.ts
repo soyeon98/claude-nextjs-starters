@@ -1,18 +1,32 @@
 import { NextResponse, type NextRequest } from "next/server"
+import { renderToBuffer } from "@react-pdf/renderer"
+import { InvoicePdf } from "@/components/invoice/invoice-pdf"
+import { getInvoiceDetail } from "@/lib/notion/invoice-fetcher"
+import React from "react"
 
-/**
- * PDF 스트림 생성 (F005).
- * 공개 토큰으로 견적서를 조회해 PDF로 렌더링하여 스트림으로 반환합니다.
- * Next.js 16에서 params는 Promise 입니다.
- */
 export async function GET(
   _request: NextRequest,
   { params }: { params: Promise<{ token: string }> }
 ) {
   const { token } = await params
-  // TODO: token으로 SharedInvoice(is_active) 조회 → 노션 내용 → @react-pdf/renderer로 PDF 생성
-  return NextResponse.json(
-    { error: "아직 구현되지 않았습니다.", token },
-    { status: 501 }
-  )
+  const invoice = await getInvoiceDetail(token).catch(() => null)
+
+  if (!invoice) {
+    return NextResponse.json(
+      { error: "견적서를 찾을 수 없습니다." },
+      { status: 404 }
+    )
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const element = React.createElement(InvoicePdf, { invoice }) as any
+  const buffer = await renderToBuffer(element)
+
+  const safeTitle = invoice.title.replace(/[^a-zA-Z0-9가-힣_-]/g, "_")
+  return new Response(buffer as unknown as BodyInit, {
+    headers: {
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="invoice-${safeTitle}.pdf"`,
+    },
+  })
 }
