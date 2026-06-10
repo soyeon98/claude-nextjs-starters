@@ -47,3 +47,9 @@ next-env.d.ts
 
 # playwright mcp logs
 .playwright-mcp/
+
+# 개발 중 생성된 스크린샷
+*.png
+
+# shrimp task manager 데이터
+/shrimp-data/
