@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowLeft, Link2 } from "lucide-react"
+import { ArrowLeft, Download, Link2 } from "lucide-react"
 import { toast } from "sonner"
 import {
   Breadcrumb,
@@ -71,16 +71,25 @@ export function InvoicePreviewClient({ invoiceId, invoice }: InvoicePreviewClien
             </Link>
           </Button>
 
-          {/* 우: 공유 링크 복사 */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={handleCopyShareLink}
-            className="self-start sm:self-auto"
-          >
-            <Link2 className="size-4" />
-            공유 링크 복사
-          </Button>
+          {/* 우: PDF 다운로드 + 공유 링크 복사 */}
+          <div className="flex items-center gap-2 self-start sm:self-auto">
+            {invoice && (
+              <Button asChild variant="outline" size="sm">
+                <a href={`/api/pdf/${invoiceId}`} download>
+                  <Download className="size-4" />
+                  PDF 다운로드
+                </a>
+              </Button>
+            )}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleCopyShareLink}
+            >
+              <Link2 className="size-4" />
+              공유 링크 복사
+            </Button>
+          </div>
         </div>
 
         {/* 견적서가 없는 경우 */}
