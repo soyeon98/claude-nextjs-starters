@@ -62,7 +62,7 @@ export function InvoiceView({ invoice, isPreview = false }: InvoiceViewProps) {
           <Table>
             <TableHeader>
               <TableRow className="bg-muted/50">
-                <TableHead className="w-full py-3 pl-9">항목명</TableHead>
+                <TableHead className="w-full py-3 pl-9/">항목명</TableHead>
                 <TableHead className="text-right whitespace-nowrap py-3">
                   단가 (₩)
                 </TableHead>
