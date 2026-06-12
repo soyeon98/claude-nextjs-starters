@@ -1,7 +1,7 @@
 # 노션 기반 견적서 웹 공유 서비스 (invoice-web) 개발 로드맵
 
-> **문서 버전**: v2.1
-> **최종 수정**: 2026-06-10 (Phase C DoD 4/5 완료 반영)
+> **문서 버전**: v2.2
+> **최종 수정**: 2026-06-12 (Phase D DoD 4/6 완료 반영 — E2E 14개 통과, lint/build 무오류)
 > **작성자**: PM/Architecture Team
 > **기준 PRD**: `docs/PRD.md`
 > **주요 변경 (v1.1 → v2.0)**: Supabase 완전 제거, 인증 없음(전 페이지 공개), DB/영속 저장소 없음, 공유 링크 = 노션 페이지 ID 직접 사용
@@ -370,10 +370,10 @@ Phase D (E2E + 배포)
 
 #### 완료 기준 (Definition of Done)
 
-- [ ] 핵심 플로우 Playwright E2E 통과: 목록 조회 → 공유 URL 복사 → 공개 뷰 → PDF 다운로드
-- [ ] `NOTION_API_KEY`가 어떤 응답·로그·클라이언트 번들에도 노출되지 않음 확인
-- [ ] 주요 페이지 키보드 내비게이션·aria 속성 점검
-- [ ] `npm run build` 및 `npm run lint` 무오류
+- [x] 핵심 플로우 Playwright E2E 통과: 목록 조회 → 공유 URL 복사 → 공개 뷰 → PDF 다운로드
+- [x] `NOTION_API_KEY`가 어떤 응답·로그·클라이언트 번들에도 노출되지 않음 확인
+- [x] 주요 페이지 키보드 내비게이션·aria 속성 점검
+- [x] `npm run build` 및 `npm run lint` 무오류
 - [ ] Vercel 프로덕션 배포 + 환경변수(`NOTION_API_KEY`, `NOTION_DATABASE_ID`, `NEXT_PUBLIC_APP_URL`) 설정
 - [ ] 프로덕션 스모크 테스트(목록~PDF) 통과
 
